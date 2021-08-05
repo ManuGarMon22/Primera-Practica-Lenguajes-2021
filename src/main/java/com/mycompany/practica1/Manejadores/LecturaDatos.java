@@ -106,11 +106,17 @@ public class LecturaDatos {
             
             else if(letrasTexto[i].equals(" ")){
                 auxEnd = i;
-                
-                Token(letter, number, point, numberAfterPoint, signal, first);
+                this.Token(letter, number, point, numberAfterPoint, signal, first);
                 this.Show(auxStart, auxEnd);
-                
-                auxStart = auxEnd;
+                letter = false; 
+                number= false; 
+                point = false; 
+                numberAfterPoint = false;
+                signal= false; 
+                error = false; 
+                first = 0;
+                this.tipo = Tipo.ERROR;
+                auxStart = auxEnd++;
                 
             }
         auxEnd = i;
@@ -151,14 +157,19 @@ public class LecturaDatos {
         int start = inicio;
         int end = fin;        
         for(int i = start; i<=end; i++){
-            areaT.setText(this.letrasTexto[i]);
+            areaT.append(this.letrasTexto[i]);
         }      
-        areaT.setText(this.tipo.getDescripcion()+"\n");
+        areaT.append(this.tipo.getDescripcion()+"\n");
     }
     
-    private void Reset(int start, int end){
-        start = 0;
-        end = 0;
+    private void Reset(boolean l,boolean n,boolean p,boolean np,boolean s, int first){
+        
+        first = 0;
+        l = false;
+        n = false;
+        p = false;
+        np = false;
+        s = false;
         this.tipo = Tipo.ERROR;
     }
     
