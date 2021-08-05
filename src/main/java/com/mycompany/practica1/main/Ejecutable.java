@@ -5,10 +5,18 @@
  */
 package com.mycompany.practica1.main;
 
+import com.mycompany.practica1.Framework.Principal;
+import com.mycompany.practica1.Manejadores.*;
+        
 /**
  *
  * @author manu
  */
 public class Ejecutable {
+    
+    public static void main(String[] args) {
+        Principal p = new Principal();
+        p.setVisible(true);
+    }
     
 }
